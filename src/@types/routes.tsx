@@ -1,4 +1,4 @@
-import { LayoutType } from './theme'
+import type { LayoutType } from './theme'
 import type { LazyExoticComponent, ReactNode } from 'react'
 
 export type PageHeaderProps = {

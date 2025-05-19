@@ -1,26 +1,23 @@
 import type { CommonProps } from '@/@types/common'
 import { AppSidebar } from '@/components/app-sidebar'
-import { SidebarProvider } from '@/components/ui/sidebar'
-import { cn } from '@/lib/utils'
+import { NavActions } from '@/components/nav-actions'
+import { Separator } from '@/components/ui/separator'
+import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 
 const ShadcnLayout = ({ children }: CommonProps) => {
     return (
         <SidebarProvider defaultOpen={true}>
             <AppSidebar />
-            <div
-                id='content'
-                className={cn(
-                    'ml-auto w-full max-w-full',
-                    'peer-data-[state=collapsed]:w-[calc(100%-var(--sidebar-width-icon)-1rem)]',
-                    'peer-data-[state=expanded]:w-[calc(100%-var(--sidebar-width))]',
-                    'sm:transition-[width] sm:duration-200 sm:ease-linear',
-                    'flex h-svh flex-col',
-                    'group-data-[scroll-locked=1]/body:h-full',
-                    'has-[main.fixed-main]:group-data-[scroll-locked=1]/body:h-svh'
-                )}
-            >
+            <SidebarInset>
+                <header className="flex sticky top-0 z-10 border-b p-3 bg-background">
+                    <SidebarTrigger className="-ml-1" />
+                    <Separator orientation="vertical" className="mr-2 h-4" />
+                    <div className="ml-auto px-3">
+                        <NavActions />
+                    </div>
+                </header>
                 {children}
-            </div>
+            </SidebarInset>
         </SidebarProvider>
     )
 }

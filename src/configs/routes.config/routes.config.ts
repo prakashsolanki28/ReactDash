@@ -8,7 +8,13 @@ export const protectedRoutes: Routes = [
     {
         key: 'home',
         path: '/home',
-        component: lazy(() => import('@/views/Home')),
+        component: lazy(() => import('@/views/app/Home')),
         authority: [],
     },
+    {
+        key: 'settings',
+        path: '/settings',
+        component: lazy(() => import('@/views/settings')),
+        authority: [],
+    }
 ]

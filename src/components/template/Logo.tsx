@@ -1,6 +1,7 @@
 
 import { APP_NAME } from '@/constants/app.constant'
 import type { CommonProps } from '@/@types/common'
+import { cn } from '@/lib/utils'
 
 interface LogoProps extends CommonProps {
     type?: 'full' | 'streamline'
@@ -23,7 +24,7 @@ const Logo = (props: LogoProps) => {
 
     return (
         <div
-            className={classNames('logo', className)}
+            className={cn('logo', className)}
             style={{
                 ...style,
                 ...{ width: logoWidth },
